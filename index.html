@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    
+    <title>React Hw</title>
+</head>
+<body>
+
+    <div id="app"></div>
+
+    <script type="text/babel">
+    class App extends React.Component {
+        state = {
+            name:'Micheal',
+            age: 21
+        }
+        
+        // handleClick =(e) => {
+        //     // console.log(e.target);
+        //     this.setState({
+        //         name: 'Yoshi',
+        //         age: 2
+        //     })
+        //     console.log(this.state)
+        // }
+        // handleMouseOver =(e) => {
+        //     console.log(e.target,e.pageX);
+        // }
+        // handleCopy =(e) => {
+        //     console.log('Try again Lol');
+        // }
+        handleChange = (e) => {
+            this.setState({
+                name: e.target.value;
+            })
+        }
+        handleSubmit = (e) => {
+            e.preventDefault();
+        }
+        render() {
+            return (
+                <div className="app-content">
+                <h1>My name is {this.state.name}.</h1>
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" onChange={this.handleChange} />
+                    <button >Submit</button>
+                </form>
+                </div>
+                {/*and I am { this.state.age }*/}
+            {/*<button onClick={this.handleClick}> Click Me! </button>
+            <button onMouseOver={this.handleMouseOver}> Hover Me </button>
+                <p onCopy={this.handleCopy}>What we Think, We Become</p>*/}
+                
+            
+            )
+        }
+    }
+
+    ReactDOM.render(<App />, document.getElementById('app'));
+    </script>
+</body>
+</html>
